@@ -1,6 +1,6 @@
 'use strict';
 const path = require('path');
-
+const cookie = require('../app/middleware/cookie.js');
 module.exports = appInfo => {
   const config = exports = {};
 
@@ -8,11 +8,11 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1508735418104_3269';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = ['cookie'];
 
   //add static file server
   config.static = {
-    prefix:"/static/",
+    prefix: "/static/",
     dir: path.join(appInfo.baseDir, 'app/static'),
     dynamic: true
   }

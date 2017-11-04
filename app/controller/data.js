@@ -11,28 +11,25 @@ const whetherMongo = require('../../mongo/whether.js');
 module.exports = app => {
   class DataController extends app.Controller {
     async DyySche() {
-      this.ctx.response.append("Access-Control-Allow-Origin", "*");
-      this.ctx.response.append("Access-Control-Allow-Credentials", "true");
-      this.ctx.response.append("Access-Control-Allow-Methods", "*");
-      this.ctx.body = course_dyy;
+      let result = {};
+      //验证cookie
+      result.message = this.ctx.newMessage;
+      result.data = course_dyy;
+      this.ctx.body = result
     }
     async CyfSche() {
-      this.ctx.response.append("Access-Control-Allow-Origin", "*");
-      this.ctx.response.append("Access-Control-Allow-Credentials", "true");
-      this.ctx.response.append("Access-Control-Allow-Methods", "*");
-      this.ctx.body = course_cyf;
+      let result = {};
+      //验证cookie
+      result.message = this.ctx.newMessage;
+      result.data = course_cyf;
+      this.ctx.body = result
     }
     //获得某一个城市的天气信息
     async whether() {
-      //---设置可跨域访问----
-      this.ctx.response.append("Access-Control-Allow-Origin", "*");
-      this.ctx.response.append("Access-Control-Allow-Credentials", "true");
-      this.ctx.response.append("Access-Control-Allow-Methods", "*");
-
       //设置cityid，以后一传参数的方式来运行
       let cityid = "166";
-      //设置过期时间
-      const timeOut = 15;
+      //设置过期时间 mins
+      const timeOut = 5;
 
       //根据cityid查询数据库
       let getByCityid = function (cityid) {

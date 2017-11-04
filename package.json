@@ -6,7 +6,8 @@
   "dependencies": {
     "egg": "^1.9.0",
     "egg-scripts": "^2.1.0",
-    "mongoose": "^4.12.5"
+    "mongoose": "^4.12.5",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "autod": "^2.10.0",
